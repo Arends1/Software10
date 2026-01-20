@@ -47,7 +47,7 @@ const Splash = ({ onFinish }) => {
       `}>
         <div className="w-48 h-48 flex items-center justify-center mx-auto mb-6 transform transition-transform duration-1000 hover:scale-110">
           <img 
-            src={logo}  {/* CAMBIADO: de "/src/assets/logo.png" a {logo} */}
+            src={logo}
             alt="Constrefri Logo" 
             className="w-full h-full object-contain drop-shadow-2xl animate-float"
             onError={(e) => {
