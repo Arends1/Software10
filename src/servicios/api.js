@@ -3,13 +3,17 @@ const API_URL = 'https://constrefri-backend.onrender.com';
 export class APIService {
   static async login(email, password) {
     try {
-      const formData = new FormData();
-      formData.append('username', email);
-      formData.append('password', password);
+      const loginData = {
+        username: email,  // Tu backend espera "username" 
+        password: password
+      };
 
       const response = await fetch(`${API_URL}/auth/login`, {
         method: 'POST',
-        body: formData,
+        headers: {
+          'Content-Type': 'application/json',  // AÑADE ESTO
+        },
+        body: JSON.stringify(loginData),  // Envía JSON, no FormData
       });
 
       if (!response.ok) {
