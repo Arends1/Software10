@@ -1,4 +1,4 @@
-const API_URL = 'http://localhost:8000';
+const API_URL = 'https://constrefri-backend.onrender.com';
 
 export class APIService {
   static async login(email, password) {
