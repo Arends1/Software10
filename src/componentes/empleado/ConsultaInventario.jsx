@@ -92,7 +92,7 @@ const ConsultaInventario = () => {
     }
 
     try {
-      const response = await fetch(`http://127.0.0.1:8000/productos/${productoSeleccionado.id}?usuario_id=${usuario.id}&cantidad=${cantidadEliminar}`, {
+      const response = await fetch(`https://constrefri-backend.onrender.com/productos/${productoSeleccionado.id}?usuario_id=${usuario.id}&cantidad=${cantidadEliminar}`, {
         method: 'DELETE',
       });
 
@@ -127,7 +127,7 @@ const ConsultaInventario = () => {
     }
 
     try {
-      const response = await fetch(`http://127.0.0.1:8000/productos/${productoId}?usuario_id=${usuario.id}`, {
+      const response = await fetch(`https://constrefri-backend.onrender.com/productos/${productoId}?usuario_id=${usuario.id}`, {
         method: 'DELETE',
       });
 
