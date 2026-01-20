@@ -11,7 +11,7 @@ const AprobarMermas = () => {
   const cargarMermasPendientes = async () => {
     try {
       setCargando(true);
-      const response = await fetch('http://127.0.0.1:8000/mermas/pendientes');
+      const response = await fetch('https://constrefri-backend.onrender.com/mermas/pendientes');
       if (response.ok) {
         const data = await response.json();
         setMermasPendientes(data);
@@ -31,7 +31,7 @@ const AprobarMermas = () => {
     try {
       const usuarioData = JSON.parse(localStorage.getItem('userData') || '{}');
       
-      const response = await fetch(`http://127.0.0.1:8000/mermas/aprobar?merma_id=${mermaId}&usuario_id=${usuarioData.id}`, {
+      const response = await fetch(`https://constrefri-backend.onrender.com/mermas/aprobar?merma_id=${mermaId}&usuario_id=${usuarioData.id}`, {
         method: 'POST',
       });
 
@@ -59,7 +59,7 @@ const AprobarMermas = () => {
     try {
       const usuarioData = JSON.parse(localStorage.getItem('userData') || '{}');
       
-      const response = await fetch(`http://127.0.0.1:8000/mermas/rechazar?merma_id=${mermaId}&usuario_id=${usuarioData.id}&motivo_rechazo=${encodeURIComponent(motivo)}`, {
+      const response = await fetch(`https://constrefri-backend.onrender.com/mermas/rechazar?merma_id=${mermaId}&usuario_id=${usuarioData.id}&motivo_rechazo=${encodeURIComponent(motivo)}`, {
         method: 'POST',
       });
 
