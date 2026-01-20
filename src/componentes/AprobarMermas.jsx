@@ -69,7 +69,7 @@ const AprobarMermas = () => {
     try {
       const usuarioData = JSON.parse(localStorage.getItem('userData') || '{}');
       
-      const response = await fetch('http://127.0.0.1:8000/mermas/rechazar', {
+      const response = await fetch('https://constrefri-backend.onrender.com/mermas/rechazar', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
