@@ -4,16 +4,16 @@ export class APIService {
   static async login(email, password) {
     try {
       const loginData = {
-        username: email,  // Tu backend espera "username" 
+        username: email,
         password: password
       };
 
       const response = await fetch(`${API_URL}/auth/login`, {
         method: 'POST',
         headers: {
-          'Content-Type': 'application/json',  // AÑADE ESTO
+          'Content-Type': 'application/json',
         },
-        body: JSON.stringify(loginData),  // Envía JSON, no FormData
+        body: JSON.stringify(loginData),
       });
 
       if (!response.ok) {
