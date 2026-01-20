@@ -342,7 +342,7 @@ def crear_usuario(usuario: UserCreate):
         cur = conn.cursor(cursor_factory=RealDictCursor)
         
         print(f"📝 Intentando crear usuario: {usuario.email}")
-        print(f"📋 Datos recibidos: nombre={usuario.nombre, email=usuario.email, rol=usuario.rol}")
+        print(f"📋 Datos recibidos: nombre={usuario.nombre}, email={usuario.email}, rol={usuario.rol}")
         
         cur.execute("SELECT id FROM usuarios WHERE email = %s", (usuario.email,))
         email_existente = cur.fetchone()
