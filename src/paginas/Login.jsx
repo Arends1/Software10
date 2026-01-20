@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import logo from '../assets/logo.png'; // Importación CORRECTA del logo
 
 const Login = ({ onLogin }) => {
   const [email, setEmail] = useState('');
@@ -18,7 +19,6 @@ const Login = ({ onLogin }) => {
         password: password
       };
 
-      // CAMBIADO: localhost → tu backend de Render
       const response = await fetch(`${API_URL}/auth/login`, {
         method: 'POST',
         headers: {
@@ -53,7 +53,7 @@ const Login = ({ onLogin }) => {
         <div className="text-center mb-8">
           <div className="w-24 h-24 flex items-center justify-center mx-auto mb-4 transform transition-transform duration-300 hover:scale-105">
             <img 
-              src="/logo.png"  // CAMBIADO: src/assets/logo.png → /logo.png
+              src={logo}  {/* CAMBIADO: de "/logo.png" a {logo} */}
               alt="Constrefri Logo" 
               className="w-full h-full object-contain"
             />
