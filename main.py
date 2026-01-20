@@ -18,13 +18,6 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-DB_CONFIG = {
-    "host": "localhost",
-    "database": "constrefri_db",
-    "user": "constrefri_user",
-    "password": "12345",
-    "port": "5432"
-}
 
 class User(BaseModel):
     id: int
@@ -1296,4 +1289,4 @@ async def actualizar_configuraciones_multiples(configs: List[ConfiguracionBase])
 
 if __name__ == "__main__":
     import uvicorn
-    uvicorn.run(app, host="0.0.0.0", port=8000)
+    uvicorn.run(app, ="0.0.0.0", port=8000)
