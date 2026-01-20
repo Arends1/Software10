@@ -5,6 +5,9 @@ const Login = ({ onLogin }) => {
   const [password, setPassword] = useState('');
   const [isLoading, setIsLoading] = useState(false);
 
+  // URL del backend en Render
+  const API_URL = 'https://constrefri-backend.onrender.com';
+
   const manejarEnvio = async (e) => {
     e.preventDefault();
     setIsLoading(true);
@@ -15,7 +18,8 @@ const Login = ({ onLogin }) => {
         password: password
       };
 
-      const response = await fetch('http://localhost:8000/auth/login', {
+      // CAMBIADO: localhost → tu backend de Render
+      const response = await fetch(`${API_URL}/auth/login`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -49,7 +53,7 @@ const Login = ({ onLogin }) => {
         <div className="text-center mb-8">
           <div className="w-24 h-24 flex items-center justify-center mx-auto mb-4 transform transition-transform duration-300 hover:scale-105">
             <img 
-              src="/src/assets/logo.png" 
+              src="/logo.png"  // CAMBIADO: src/assets/logo.png → /logo.png
               alt="Constrefri Logo" 
               className="w-full h-full object-contain"
             />
