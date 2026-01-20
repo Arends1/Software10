@@ -17,7 +17,7 @@ const AuditoriaCompleta = () => {
   const cargarAuditoria = async () => {
     try {
       setCargando(true);
-      const response = await fetch('http://127.0.0.1:8000/auditoria');
+      const response = await fetch('https://constrefri-backend.onrender.com/auditoria');
       
       if (response.ok) {
         const data = await response.json();
@@ -36,7 +36,7 @@ const AuditoriaCompleta = () => {
 
   const cargarUsuarios = async () => {
     try {
-      const response = await fetch('http://127.0.0.1:8000/usuarios');
+      const response = await fetch('https://constrefri-backend.onrender.com/usuarios');
       if (response.ok) {
         const data = await response.json();
         setUsuarios(data);
