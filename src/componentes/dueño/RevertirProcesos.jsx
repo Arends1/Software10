@@ -61,7 +61,7 @@ const RevertirProcesos = () => {
     setRevertiendo(true);
 
     try {
-      const response = await fetch('http://127.0.0.1:8000/revertir-proceso', {
+      const response = await fetch('https://constrefri-backend.onrender.com/revertir-proceso', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
