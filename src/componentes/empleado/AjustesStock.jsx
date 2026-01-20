@@ -17,7 +17,7 @@ const AjustesStock = () => {
 
   const cargarProductos = async () => {
     try {
-      const response = await fetch('http://127.0.0.1:8000/inventario');
+      const response = await fetch('https://constrefri-backend.onrender.com/inventario');
       if (response.ok) {
         const data = await response.json();
         setProductos(data);
@@ -36,7 +36,7 @@ const AjustesStock = () => {
     try {
       const usuarioData = JSON.parse(localStorage.getItem('userData') || '{}');
       
-      const response = await fetch('http://127.0.0.1:8000/mermas/registrar', {
+      const response = await fetch('https://constrefri-backend.onrender.com/mermas/registrar', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
