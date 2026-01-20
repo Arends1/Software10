@@ -1,4 +1,4 @@
-﻿from fastapi import FastAPI, HTTPException, UploadFile, File, Form, Query
+from fastapi import FastAPI, HTTPException, UploadFile, File, Form, Query
 from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel
 import psycopg2
@@ -7,17 +7,24 @@ import csv
 import io
 from datetime import datetime, timedelta
 from typing import List
+import os
+from dotenv import load_dotenv
+
+load_dotenv()
 
 app = FastAPI(title="El Unificador")
 
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"],
+    allow_origins=[
+        "http://localhost:5173",
+        "http://localhost:3000",
+        "https://constrefri-frontend.onrender.com",
+    ],
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
 )
-
 
 class User(BaseModel):
     id: int
@@ -335,7 +342,7 @@ def crear_usuario(usuario: UserCreate):
         cur = conn.cursor(cursor_factory=RealDictCursor)
         
         print(f"📝 Intentando crear usuario: {usuario.email}")
-        print(f"📋 Datos recibidos: nombre={usuario.nombre}, email={usuario.email}, rol={usuario.rol}")
+        print(f"📋 Datos recibidos: nombre={usuario.nombre, email=usuario.email, rol=usuario.rol}")
         
         cur.execute("SELECT id FROM usuarios WHERE email = %s", (usuario.email,))
         email_existente = cur.fetchone()
@@ -1289,4 +1296,4 @@ async def actualizar_configuraciones_multiples(configs: List[ConfiguracionBase])
 
 if __name__ == "__main__":
     import uvicorn
-    uvicorn.run(app, ="0.0.0.0", port=8000)
+    uvicorn.run(app, host="0.0.0.0", port=8000)
