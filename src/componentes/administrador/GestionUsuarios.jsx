@@ -21,7 +21,7 @@ const GestionUsuarios = () => {
   const cargarUsuarios = async () => {
     try {
       console.log('Cargando usuarios...');
-      const response = await fetch('http://127.0.0.1:8000/usuarios');
+      const response = await fetch('https://constrefri-backend.onrender.com/usuarios');
       console.log('Response status:', response.status);
       
       if (response.ok) {
@@ -50,7 +50,7 @@ const GestionUsuarios = () => {
 
     try {
       console.log('Creando usuario:', nuevoUsuario);
-      const response = await fetch('http://127.0.0.1:8000/usuarios', {
+      const response = await fetch('https://constrefri-backend.onrender.com/usuarios', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
