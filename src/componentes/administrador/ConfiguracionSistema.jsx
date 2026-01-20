@@ -31,7 +31,7 @@ const ConfiguracionSistema = () => {
   const cargarConfiguraciones = async () => {
     try {
       setCargando(true);
-      const response = await fetch('http://127.0.0.1:8000/configuraciones');
+      const response = await fetch('https://constrefri-backend.onrender.com/configuraciones');
       
       if (response.ok) {
         const data = await response.json();
@@ -81,7 +81,7 @@ const ConfiguracionSistema = () => {
         { clave: 'tiempo_sesion', valor: configuraciones.sistema.tiempoSesion.toString() }
       ];
 
-      const response = await fetch('http://127.0.0.1:8000/configuraciones/actualizar-multiples', {
+      const response = await fetch('https://constrefri-backend.onrender.com/configuraciones/actualizar-multiples', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
