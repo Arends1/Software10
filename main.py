@@ -77,7 +77,17 @@ class ConfiguracionBase(BaseModel):
 
 def get_db():
     try:
-        return psycopg2.connect(**DB_CONFIG)
+        # Obtiene la URL desde variable de entorno de Render
+        database_url = os.getenv("DATABASE_URL")
+        
+        if not database_url:
+            print("❌ ERROR: DATABASE_URL no configurada en Render")
+            print("📋 Ve a tu Web Service -> Environment -> Add DATABASE_URL")
+            return None
+            
+        print(f"🔗 Conectando a PostgreSQL...")
+        # Conecta usando la URL de Render
+        return psycopg2.connect(database_url)
     except Exception as e:
         print(f"❌ Error PostgreSQL: {e}")
         return None
