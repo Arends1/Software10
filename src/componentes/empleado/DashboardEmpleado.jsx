@@ -25,9 +25,9 @@ const DashboardEmpleado = () => {
       setCargando(true);
       
       const [inventarioRes, configRes, cierresRes] = await Promise.all([
-        fetch('http://127.0.0.1:8000/inventario'),
-        fetch('http://127.0.0.1:8000/configuraciones'),
-        fetch('http://127.0.0.1:8000/auditoria?limit=50')
+        fetch('https://constrefri-backend.onrender.com/inventario'),
+        fetch('https://constrefri-backend.onrender.com/configuraciones'),
+        fetch('https://constrefri-backend.onrender.com/auditoria?limit=50')
       ]);
 
       if (inventarioRes.ok && configRes.ok) {
