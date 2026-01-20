@@ -28,8 +28,8 @@ const ConsultaInventario = () => {
       
       // Cargar inventario y configuraciones en paralelo
       const [inventarioResponse, configResponse] = await Promise.all([
-        fetch('http://127.0.0.1:8000/inventario'),
-        fetch('http://127.0.0.1:8000/configuraciones')
+        fetch('https://constrefri-backend.onrender.com/inventario'),
+        fetch('https://constrefri-backend.onrender.com/configuraciones')
       ]);
 
       if (inventarioResponse.ok) {
