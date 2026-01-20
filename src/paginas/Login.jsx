@@ -1,12 +1,11 @@
 import React, { useState } from 'react';
-import logo from '../assets/logo.png'; // Importación CORRECTA del logo
+import logo from '/src/assets/logo.png'; // Ruta ABSOLUTA
 
 const Login = ({ onLogin }) => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [isLoading, setIsLoading] = useState(false);
 
-  // URL del backend en Render
   const API_URL = 'https://constrefri-backend.onrender.com';
 
   const manejarEnvio = async (e) => {
@@ -53,9 +52,13 @@ const Login = ({ onLogin }) => {
         <div className="text-center mb-8">
           <div className="w-24 h-24 flex items-center justify-center mx-auto mb-4 transform transition-transform duration-300 hover:scale-105">
             <img 
-              src={logo}  {/* CAMBIADO: de "/logo.png" a {logo} */}
+              src={logo}
               alt="Constrefri Logo" 
               className="w-full h-full object-contain"
+              onError={(e) => {
+                e.target.onerror = null;
+                e.target.src = 'https://via.placeholder.com/150/3B82F6/FFFFFF?text=C';
+              }}
             />
           </div>
           <h1 className="text-3xl font-bold text-gray-800 mb-2">El Unificador</h1>
