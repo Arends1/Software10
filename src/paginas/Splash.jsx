@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import logo from '../assets/logo.png'; // Importación CORRECTA
 
 const Splash = ({ onFinish }) => {
   const [visible, setVisible] = useState(true);
@@ -46,19 +47,23 @@ const Splash = ({ onFinish }) => {
       `}>
         <div className="w-48 h-48 flex items-center justify-center mx-auto mb-6 transform transition-transform duration-1000 hover:scale-110">
           <img 
-            src="/src/assets/logo.png" 
-            alt="Constrefi Logo" 
+            src={logo}  {/* CAMBIADO: de "/src/assets/logo.png" a {logo} */}
+            alt="Constrefri Logo" 
             className="w-full h-full object-contain drop-shadow-2xl animate-float"
+            onError={(e) => {
+              e.target.onerror = null;
+              e.target.src = 'https://via.placeholder.com/200/3B82F6/FFFFFF?text=C';
+            }}
           />
         </div>
         
         <h1 className="text-6xl font-bold bg-gradient-to-r from-blue-200 via-white to-purple-200 bg-clip-text text-transparent mb-4">
-          Constrefi
+          Constrefri
         </h1>
         
         <p className="text-blue-200 text-lg font-light tracking-widest animate-pulse-slow">
-        Construye tu futuro!
-</p>
+          Construye tu futuro!
+        </p>
         <div className="mt-8 w-64 h-1 bg-blue-800 rounded-full mx-auto overflow-hidden">
           <div className="h-full bg-gradient-to-r from-blue-400 to-purple-400 rounded-full animate-loading-bar"></div>
         </div>
