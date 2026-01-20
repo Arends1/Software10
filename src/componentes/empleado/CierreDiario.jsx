@@ -48,7 +48,7 @@ const CierreDiario = () => {
       formData.append('archivo', archivo);
       formData.append('usuario_id', usuarioId.toString());
 
-      const response = await fetch('http://127.0.0.1:8000/cierres-diarios/subir-csv', {
+      const response = await fetch('https://constrefri-backend.onrender.com/cierres-diarios/subir-csv', {
         method: 'POST',
         body: formData,
       });
@@ -56,7 +56,7 @@ const CierreDiario = () => {
       if (response.ok) {
         const datos = await response.json();
         
-        const procesarResponse = await fetch('http://127.0.0.1:8000/cierres-diarios/procesar', {
+        const procesarResponse = await fetch('https://constrefri-backend.onrender.com/cierres-diarios/procesar', {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
