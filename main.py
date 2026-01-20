@@ -20,7 +20,7 @@ app.add_middleware(
         "http://localhost:5173",
         "http://localhost:3000",
         "https://constrefri-frontend.onrender.com",
-        "https://constrefri-frontend.onrender.com",
+        "https://constrefri-frontend2.onrender.com"
     ],
     allow_credentials=True,
     allow_methods=["*"],
