@@ -15,7 +15,7 @@ const ReportesAvanzados = () => {
       setCargando(true);
       console.log('🔍 Cargando productos desde /inventario...');
       
-      const response = await fetch('http://127.0.0.1:8000/inventario');
+      const response = await fetch('https://constrefri-backend.onrender.com/inventario');
       
       if (!response.ok) {
         throw new Error(`Error ${response.status}: ${response.statusText}`);
