@@ -100,7 +100,7 @@ const GestionUsuarios = () => {
       console.log('Eliminando usuario ID:', usuarioId);
       
       // LLAMADA REAL AL BACKEND PARA ELIMINAR
-      const response = await fetch(`http://127.0.0.1:8000/usuarios/${usuarioId}?usuario_actual_id=${usuarioActual.id}`, {
+      const response = await fetch(`https://constrefri-backend.onrender.com/usuarios/${usuarioId}?usuario_actual_id=${usuarioActual.id}`, {
         method: 'DELETE',
       });
 
